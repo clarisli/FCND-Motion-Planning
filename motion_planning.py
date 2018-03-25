@@ -188,7 +188,7 @@ if __name__ == "__main__":
     parser.add_argument('--goal_lon', type=float, default=-122.398248, help="Goal longitude")
     parser.add_argument('--goal_alt', type=float, default=5, help="Goal altitude")
     args = parser.parse_args()
-    #37.796164, -122.394943
+
     conn = MavlinkConnection('tcp:{0}:{1}'.format(args.host, args.port), timeout=60)
     global_goal_position = np.array([args.goal_lon, args.goal_lat, args.goal_alt], dtype='Float64') #np.fromstring(f'{args.goal_lon},{args.goal_lat},{args.goal_alt}', dtype='Float64', sep=',')
     drone = MotionPlanning(conn, global_goal_position=global_goal_position)
